@@ -1,0 +1,26 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash $CLAUDE_PROJECT_DIR/.claude/hooks/run-paired-test.sh"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "npm test >/tmp/simple-english-stop-tests.log 2>&1 || { echo 'npm test failed — refusing to end turn:' >&2; tail -40 /tmp/simple-english-stop-tests.log >&2; exit 2; }"
+          }
+        ]
+      }
+    ]
+  }
+}
