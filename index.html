@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="theme-color" content="#FFF8E7">
+  <title>Pip says English</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <button id="home-btn" class="home-btn" aria-label="Home">🏠</button>
+
+  <section id="screen-home" class="screen">
+    <div id="home-mascot-slot" class="mascot-slot"></div>
+    <div id="tts-indicator" class="tts-indicator hidden" aria-live="polite">🔊?</div>
+    <div class="category-tiles">
+      <button class="category-tile tile-animals" data-category="animals">
+        <span class="category-emoji">🐾</span>
+        <span class="category-label">Animals</span>
+      </button>
+      <button class="category-tile tile-colors" data-category="colors">
+        <span class="category-emoji">🎨</span>
+        <span class="category-label">Colors</span>
+      </button>
+      <button class="category-tile tile-food" data-category="food">
+        <span class="category-emoji">🍎</span>
+        <span class="category-label">Food</span>
+      </button>
+    </div>
+  </section>
+
+  <section id="screen-category" class="screen hidden">
+    <div class="mode-toggle">
+      <button class="mode-option mode-look active" data-mode="look">👀 Look</button>
+      <button class="mode-option mode-play" data-mode="play">🎮 Play</button>
+    </div>
+    <div id="word-grid" class="word-grid"></div>
+  </section>
+
+  <section id="screen-explore" class="screen hidden">
+    <div id="explore-card" class="explore-card">
+      <button id="explore-replay" class="replay-btn" aria-label="Hear again">🔊</button>
+      <span id="explore-emoji" class="explore-emoji"></span>
+      <div id="explore-word" class="explore-word"></div>
+    </div>
+  </section>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
