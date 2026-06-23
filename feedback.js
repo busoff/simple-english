@@ -1,9 +1,13 @@
+import { playCheer, playTryAgain } from './sound.js';
+
 export function playCorrect(targetEl) {
   targetEl.classList.add('correct');
+  playCheer();
 }
 
 export function playWrong(targetEl) {
   targetEl.classList.add('wrong');
+  playTryAgain();
 }
 
 const CONFETTI_EMOJI = ['🎉', '✨', '⭐'];
