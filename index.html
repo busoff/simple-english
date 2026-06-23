@@ -10,6 +10,11 @@
 <body>
   <button id="home-btn" class="home-btn" aria-label="Home">🏠</button>
 
+  <div id="mode-toggle" class="mode-toggle hidden">
+    <button class="mode-option mode-look active" data-mode="look">👀 Look</button>
+    <button class="mode-option mode-play" data-mode="play">🎮 Play</button>
+  </div>
+
   <section id="screen-home" class="screen">
     <div id="home-mascot-slot" class="mascot-slot"></div>
     <div id="tts-indicator" class="tts-indicator hidden" aria-live="polite">🔊?</div>
@@ -30,10 +35,6 @@
   </section>
 
   <section id="screen-category" class="screen hidden">
-    <div class="mode-toggle">
-      <button class="mode-option mode-look active" data-mode="look">👀 Look</button>
-      <button class="mode-option mode-play" data-mode="play">🎮 Play</button>
-    </div>
     <div id="word-grid" class="word-grid"></div>
   </section>
 
@@ -42,6 +43,17 @@
       <button id="explore-replay" class="replay-btn" aria-label="Hear again">🔊</button>
       <span id="explore-emoji" class="explore-emoji"></span>
       <div id="explore-word" class="explore-word"></div>
+    </div>
+  </section>
+
+  <section id="screen-findit" class="screen hidden">
+    <div id="findit-container" class="findit-container"></div>
+  </section>
+
+  <section id="screen-yay" class="screen hidden">
+    <div class="yay-card">
+      <span class="yay-mascot">🦜</span>
+      <div class="yay-text">Yay!</div>
     </div>
   </section>
 

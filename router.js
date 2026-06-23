@@ -1,4 +1,4 @@
-const SCREENS = ['home', 'category', 'explore'];
+const SCREENS = ['home', 'category', 'explore', 'findit', 'yay'];
 
 function screenEl(name) {
   return document.getElementById(`screen-${name}`);
