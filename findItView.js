@@ -1,4 +1,5 @@
 import { speak } from './tts.js';
+import { playCorrect, playWrong } from './feedback.js';
 
 const ADVANCE_MS = 1000;
 const WRONG_DISABLE_MS = 1500;
@@ -59,14 +60,14 @@ export function render(container, round, callbacks = {}) {
     clearAutoReplay();
     if (index === round.correctIndex) {
       settled = true;
-      tiles[index].classList.add('correct');
+      playCorrect(tiles[index]);
       advanceTimer = setTimeout(() => {
         advanceTimer = null;
         callbacks.onCorrect?.();
       }, ADVANCE_MS);
       return;
     }
-    tiles[index].classList.add('wrong');
+    playWrong(tiles[index]);
     tiles[index].disabled = true;
     const id = setTimeout(() => {
       wrongTimers.delete(index);

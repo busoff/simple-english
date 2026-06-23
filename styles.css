@@ -76,9 +76,31 @@ body {
   animation: mascot-sway 2s ease-in-out infinite;
 }
 
+.mascot-bounce {
+  animation: mascot-bounce 0.5s ease-in-out infinite;
+}
+
+.mascot-confused {
+  display: inline-block;
+  transform: rotate(-15deg);
+}
+
+.mascot-thought {
+  position: absolute;
+  top: -20px;
+  right: -36px;
+  font-size: 0.5em;
+  white-space: nowrap;
+}
+
 @keyframes mascot-sway {
   0%, 100% { transform: rotate(-5deg); }
   50% { transform: rotate(5deg); }
+}
+
+@keyframes mascot-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
 }
 
 .tts-indicator {
@@ -335,4 +357,57 @@ body {
 @keyframes mascot-bounce {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-20px); }
+}
+
+.confetti-burst {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  z-index: 5;
+}
+
+.confetti-piece {
+  display: inline-block;
+  font-size: 48px;
+  animation: confetti-fall 1.5s ease-out forwards;
+  animation-delay: var(--confetti-delay, 0s);
+}
+
+@keyframes confetti-fall {
+  0% { transform: translateY(-40px) rotate(0deg); opacity: 0; }
+  20% { opacity: 1; }
+  100% { transform: translateY(120px) rotate(360deg); opacity: 0; }
+}
+
+.rotate-nag {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: 24px;
+}
+
+.rotate-nag-mascot-slot {
+  position: relative;
+}
+
+.rotate-nag-icon {
+  font-size: 64px;
+}
+
+.rotate-nag-text {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--ink);
 }
