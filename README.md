@@ -29,7 +29,7 @@ This repo has two hosting targets. **Cloudflare Pages is canonical** — it host
 
 ### GitHub Pages
 
-On every push to `main`, the `deploy-pages.yml` workflow uploads the repo root to GitHub Pages. The site lands at `https://<owner>.github.io/<repo>/`.
+On every push to `main`, the `deploy-pages.yml` workflow uploads the repo root to GitHub Pages. The site lands at https://busoff.github.io/simple-english/.
 
 All asset references in `index.html` are relative, so the app works unchanged under the `/<repo>/` subpath.
 
