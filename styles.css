@@ -195,6 +195,12 @@ body {
   margin-top: 64px;
 }
 
+@media (orientation: portrait) {
+  .word-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 .word-tile {
   aspect-ratio: 1;
   background: #fff;

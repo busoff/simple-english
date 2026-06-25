@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 
-describe('orientation', () => {
+describe('portrait orientation support', () => {
   let applyOrientation;
   let initOrientation;
   let originalInnerWidth;
@@ -26,13 +26,6 @@ describe('orientation', () => {
     Object.defineProperty(window, 'innerHeight', { value: h, configurable: true, writable: true });
   }
 
-  it('hides rotate-nag overlay when viewport is landscape', () => {
-    setViewport(1024, 768);
-    applyOrientation();
-    expect(document.getElementById('rotate-nag').classList.contains('hidden'))
-      .toBe(true);
-  });
-
   it('never shows rotate-nag overlay in portrait', () => {
     setViewport(400, 800);
     applyOrientation();
@@ -40,11 +33,16 @@ describe('orientation', () => {
       .toBe(true);
   });
 
-  it('initOrientation keeps rotate-nag hidden on viewport changes', () => {
+  it('never shows rotate-nag overlay in landscape', () => {
     setViewport(1024, 768);
-    initOrientation();
+    applyOrientation();
     expect(document.getElementById('rotate-nag').classList.contains('hidden'))
       .toBe(true);
+  });
+
+  it('keeps rotate-nag hidden on orientation change', () => {
+    setViewport(1024, 768);
+    initOrientation();
 
     setViewport(400, 800);
     window.dispatchEvent(new Event('resize'));

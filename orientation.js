@@ -5,7 +5,7 @@ function isPortrait() {
 export function applyOrientation() {
   const overlay = document.getElementById('rotate-nag');
   if (!overlay) return;
-  overlay.classList.toggle('hidden', !isPortrait());
+  overlay.classList.add('hidden');
 }
 
 export function initOrientation() {

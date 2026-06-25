@@ -13,7 +13,7 @@ Locked decisions from the grill-me design session on 2026-06-23. See [[learner-p
 
 ## Learner & device
 - 4yo Chinese boy, near-zero English exposure
-- Android tablet, **landscape only**, touch input only
+- Android tablet, **portrait and landscape**, touch input only
 - UI language: English only (parent reads English fine)
 
 ## Goal & activities
@@ -90,15 +90,15 @@ simple-english/
 ├── styles.css          (all styles + animations)
 ├── words.js            ([{word, emoji, category}, ...])
 ├── app.js              (navigation, TTS, find-it logic)
-├── manifest.json       (PWA config, display:standalone, orientation:landscape)
-└── icon.png            (192 & 512 — 🦜 on colored bg)
+├── orientation.js      (orientation handling, rotate-nag logic)
+└── icon.png            (192 & 512 — 🦜 on colored bg) [TODO]
 ```
 
 ## Edge cases (mobile hardening)
 - TTS unavailable → "🔊?" indicator, don't block
 - Audio overlap → `cancel()` before `speak()`
 - Mid-session home tap → exit immediately, no warning, state lost
-- Portrait orientation → friendly rotate-nag screen with mascot
+- Portrait orientation → responsive layout (3-column word grid, 2-column find-it)
 - Double-tap zoom → viewport meta `maximum-scale=1, user-scalable=no` + `touch-action: manipulation`
 - Swipe/pull-to-refresh → `overscroll-behavior: none` + `popstate` intercept + `touch-action: none` on game areas
 
