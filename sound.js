@@ -29,7 +29,9 @@ export function playCheer() {
   playTone(ctx, { freq: 523.25, start: 0.00, duration: 0.12 });
   playTone(ctx, { freq: 659.25, start: 0.10, duration: 0.12 });
   playTone(ctx, { freq: 783.99, start: 0.20, duration: 0.20 });
-  setTimeout(() => ctx.close(), 600);
+  setTimeout(() => {
+    if (ctx.state !== 'closed') ctx.close().catch(() => {});
+  }, 600);
 }
 
 export function playTryAgain() {
@@ -39,5 +41,7 @@ export function playTryAgain() {
   // soft descending minor two-tone (A4 -> E4)
   playTone(ctx, { freq: 440.00, start: 0.00, duration: 0.18, type: 'sine', peak: 0.14 });
   playTone(ctx, { freq: 329.63, start: 0.16, duration: 0.30, type: 'sine', peak: 0.14 });
-  setTimeout(() => ctx.close(), 700);
+  setTimeout(() => {
+    if (ctx.state !== 'closed') ctx.close().catch(() => {});
+  }, 700);
 }
